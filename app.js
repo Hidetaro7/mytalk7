@@ -43,7 +43,7 @@ app.use(function(req, res, next) {
 app.get('/', (req, res) => {
 	//res.send('hello');
 	//res.end(JSON.stringify(json));
-	res.sendFile("./index.html");
+	res.sendfile("index.html");
 });
 
 
