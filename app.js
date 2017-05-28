@@ -49,7 +49,7 @@ app.get('/', (req, res) => {
 
 
 app.post('/phrase', (req, res) => {
-	var phrase = req.body.phrase;
+	var phrase = encodeURIComponent(req.body.phrase);
 	console.log("きてる")
 	console.log(phrase)
 	var headers = {
@@ -70,8 +70,8 @@ app.post('/phrase', (req, res) => {
 	  	console.log(error);
 	  	res.end(error);
 	  }else{
-	 	 console.log(body);
-	 	 res.end(response);
+	 	 //console.log(body);
+	 	 res.end(JSON.stringify(response));
 	  }
 	})
 	//console.log(req.body)

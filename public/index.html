@@ -45,7 +45,12 @@
 				dataType: "json",
 				data: {"phrase": kwd},
 				success: function (res) {
-					$(".results").append(JSON.parse(res));
+					console.log(res.body)
+					var score = "";
+					for (var i in res.body) {
+						score += i +":"+ res.body[i] + " "
+					}
+					$(".results").append(score);
 				}
 			})
 		}
