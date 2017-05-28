@@ -62,6 +62,10 @@ app.post('/phrase', (req, res) => {
 	}
 	request(options, function (error, response, body) {
 	  //コールバックで色々な処理
+	  if(error) {
+	  	console.log(error);
+	  	return;
+	  }
 	  console.log(body);
 	  res.end(response);
 	})
