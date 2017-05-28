@@ -31,24 +31,27 @@ var json = {
 		{"name": "大田", "comment": "World"}
 	]
 }
-
+app.use(express.static(__dirname + '/public'));
 // CORSを許可する
-app.use(function(req, res, next) {
+/*app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
   //res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-  res.header('Content-Type', 'application/json; charset=utf-8');
+  //res.header('Content-Type', 'application/json; charset=utf-8');
   next();
 });
-
+*/
 app.get('/', (req, res) => {
 	//res.send('hello');
 	//res.end(JSON.stringify(json));
-	res.sendfile("index.html");
+	res.header('Content-Type', 'text/html; charset=utf-8');
+	res.sendfile('index.html');
 });
 
 
 app.post('/phrase', (req, res) => {
 	var phrase = req.body.phrase;
+	console.log("きてる")
+	console.log(phrase)
 	var url = "https://jlp.yahooapis.jp/KeyphraseService/V1/extract?output=json&appid=dj0zaiZpPTROdVpkbk9hTUduQyZzPWNvbnN1bWVyc2VjcmV0Jng9ODY-&sentence="+phrase;
 	var options = {
 	  url: url,
