@@ -1,0 +1,25 @@
+
+{
+  "name": "mytalk7",
+  "version": "0.1.0",
+  "description": "chikuwa",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+  },
+  "engines": {
+    "node": "4.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Hidetaro7/mytalk7"
+  },
+  "keywords": [
+    "node",
+    "heroku"
+  ],
+  "author": "Hidetaro7",
+  "license": "MIT"
+}
