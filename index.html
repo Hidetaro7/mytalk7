@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="ja-JP">
+<head>
+	<meta charset="UTF-8">
+	<meta name="description" content="">
+	<title>test</title>
+	<style>
+		body {
+			font-family: sans-serif;
+		}
+		.input {
+			position: fixed;
+			height: 3rem;
+			border-bottom: 1px solid #ccc;
+			width: 100%;
+			display: flex;
+			justify-content: space-between;
+			align-items: stretch;
+			#kw {
+				font: 100%;
+			}
+			#submit {
+				
+			}
+		}
+		.results {
+			position: relative;
+			top: 3rem;
+		}
+	</style>
+</head>
+<body>
+	<div class="input"><input type="text" id="kw"><button id="submit">送信</button></div>
+	<div class="results">
+		
+	</div>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+	<script>
+	$("#submit").on("click", function () {
+		var kwd = $("#kw").val();
+		if(kwd !== "") {
+			$.ajax({
+				url: "/phrase",
+				method: "post",
+				dataType: "json",
+				success: function (res) {
+					$(".results").append(JSON.parse(res));
+				}
+			})
+		}
+	})
+		
+	</script>
+</body>
+</html>
