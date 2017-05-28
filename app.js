@@ -52,12 +52,15 @@ app.post('/phrase', (req, res) => {
 	var phrase = req.body.phrase;
 	console.log("きてる")
 	console.log(phrase)
+	var headers = {
+	  'Content-Type':'application/json'
+	}
 	var url = "https://jlp.yahooapis.jp/KeyphraseService/V1/extract?output=json&appid=dj0zaiZpPTROdVpkbk9hTUduQyZzPWNvbnN1bWVyc2VjcmV0Jng9ODY-&sentence="+phrase;
 	var options = {
 	  url: url,
-	  method: 'GET'/*,
+	  method: 'GET',
 	  headers: headers,
-	  json: true,
+	  json: true/*,
 	  form: {"hoge":"fuga"}*/
 	}
 	request(options, function (error, response, body) {
