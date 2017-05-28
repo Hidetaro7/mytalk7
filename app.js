@@ -66,11 +66,13 @@ app.post('/phrase', (req, res) => {
 	request(options, function (error, response, body) {
 	  //コールバックで色々な処理
 	  if(error) {
+	  	console.log("error------------!");
 	  	console.log(error);
-	  	return;
+	  	res.end(error);
+	  }else{
+	 	 console.log(body);
+	 	 res.end(response);
 	  }
-	  console.log(body);
-	  res.end(response);
 	})
 	//console.log(req.body)
 	//res.end(JSON.stringify(req.body));
