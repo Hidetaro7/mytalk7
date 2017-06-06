@@ -50,7 +50,6 @@ app.get('/', (req, res) => {
 
 app.post('/phrase', (req, res) => {
 	var phrase = encodeURIComponent(req.body.phrase);
-	console.log("きてる")
 	console.log(phrase)
 	var headers = {
 	  'Content-Type':'application/json'

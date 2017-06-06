@@ -7,6 +7,7 @@
 	<style>
 		body {
 			font-family: sans-serif;
+			margin: 0;
 		}
 		.input {
 			position: fixed;
@@ -14,18 +15,23 @@
 			border-bottom: 1px solid #ccc;
 			width: 100%;
 			display: flex;
-			justify-content: space-between;
+			justify-content: flex-start;
 			align-items: stretch;
-			#kw {
-				font: 100%;
-			}
-			#submit {
-				
-			}
+		}
+		#kw {
+			font-size: 100%;
+			width: 40em;
+		}
+		#submit {
+			
 		}
 		.results {
 			position: relative;
 			top: 3rem;
+		}
+		.comment {
+			font-size: small;
+			border-bottom: 1px solid #ccc;
 		}
 	</style>
 </head>
@@ -46,11 +52,13 @@
 				data: {"phrase": kwd},
 				success: function (res) {
 					console.log(res.body)
+
 					var score = "";
 					for (var i in res.body) {
 						score += i +":"+ res.body[i] + " "
 					}
-					$(".results").append(score);
+					var dom = $("<dl class='comment'><dt>"+kwd+"</dt><dd>"+score+"</dd></dl>")
+					$(".results").append(dom);
 				}
 			})
 		}
